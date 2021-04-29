@@ -72,10 +72,12 @@ void addFimEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
     pessoa *ponteiroAuxiliar = ponteiroEncadeada;
 
     while(ponteiroAuxiliar != NULL){
+
         if(ponteiroAuxiliar->proximo == NULL){
             ponteiroAuxiliar->proximo = novoValor;
             return;
         }
+
         ponteiroAuxiliar = ponteiroAuxiliar->proximo;
     }
 }
