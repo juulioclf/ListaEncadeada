@@ -30,6 +30,19 @@ int retornaTamanho(pessoa *ponteiroEncadeada){
 
 }
 
+void imprimeLista(pessoa *ponteiroEncadeada){
+
+    pessoa *ponteiroAuxiliar = ponteiroEncadeada;
+
+    while(ponteiroAuxiliar != NULL){
+
+        cout << ponteiroAuxiliar->nome << ", " << ponteiroAuxiliar->rg << "\n";
+
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+    }
+
+}
+
 int main(){
 
     int funcaoUsuario = 0;
@@ -55,7 +68,8 @@ int main(){
     while(funcaoUsuario != 9){
 
         cout << "tamanho da lista: " << retornaTamanho(ponteiroEncadeada) << "\n\n";
-        cout << "funcao 1: insercao de uma pessoa no inicio da lista\n";
+        imprimeLista(ponteiroEncadeada);
+        cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista\n";
         cout << "funcao 2: insercao de uma pessoa no final da lista\n";
         cout << "funcao 3: insercao de uma pessoa na posicao N\n";
         cout << "funcao 4: remocao de uma pessoa no inicio da lista\n";
