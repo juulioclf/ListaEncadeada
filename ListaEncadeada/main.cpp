@@ -45,28 +45,13 @@ void imprimeLista(pessoa *ponteiroEncadeada){
 
 int main(){
 
-    int funcaoUsuario = 0;
+    int funcaoUsuario = 0, rg;
+    string nome;
     pessoa *ponteiroEncadeada;
-
-    //teste
-    pessoa *testePessoaEncadeada = new pessoa;
-    testePessoaEncadeada->nome = "julio";
-    testePessoaEncadeada->rg = 127217821;
-    testePessoaEncadeada->proximo = NULL;
-
-    ponteiroEncadeada = testePessoaEncadeada;
-
-    pessoa *testePessoaEncadeada2 = new pessoa;
-    testePessoaEncadeada2->nome = "gabe";
-    testePessoaEncadeada2->rg = 21211221;
-    testePessoaEncadeada2->proximo = NULL;
-
-    testePessoaEncadeada->proximo = testePessoaEncadeada2;
 
     while(funcaoUsuario != 9){
 
-        cout << "tamanho da lista: " << retornaTamanho(ponteiroEncadeada) << "\n\n";
-        imprimeLista(ponteiroEncadeada);
+
         cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista\n";
         cout << "funcao 2: insercao de uma pessoa no final da lista\n";
         cout << "funcao 3: insercao de uma pessoa na posicao N\n";
@@ -79,6 +64,48 @@ int main(){
         cout << "\ndigite a opcao desejada e pressione ENTER: ";
         cin >> funcaoUsuario;
         limparTela();
+
+        switch(funcaoUsuario){
+            case 1:
+
+                cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista";
+                cout << "\nDigite um nome: ";
+                cin >> nome;
+                cout << "\n Digite um RG: ";
+
+                //addComecoEncadeada(ponteiroEncadeada, nome, rg);
+
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
+                break;
+            case 8:
+
+                cout << "\nfuncao 8: mostrar a lista";
+
+                break;
+            case 9:
+
+                cout << "\nSaindo do sistema..";
+
+                break;
+        }
 
     }
 
