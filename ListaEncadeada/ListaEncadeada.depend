@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1619700347 source:c:\users\juli0\documents\github\listaencadeada\listaencadeada\main.cpp
+1619701185 source:c:\users\juli0\documents\github\listaencadeada\listaencadeada\main.cpp
 	<stdlib.h>
 	<new>
 	<iostream>
+	<string>
 
