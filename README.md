@@ -1,2 +1,3 @@
 # ListaEncadeada
-Projeto de lista encadeada em C++
+Projeto de lista encadeada em C e C++
+
