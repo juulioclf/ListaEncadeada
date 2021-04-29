@@ -62,6 +62,24 @@ void addComecoEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
 
 }
 
+void addFimEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
+
+    pessoa *novoValor = new pessoa;
+    novoValor->nome = nome;
+    novoValor->rg = rg;
+    novoValor->proximo = NULL;
+
+    pessoa *ponteiroAuxiliar = ponteiroEncadeada;
+
+    while(ponteiroAuxiliar != NULL){
+        if(ponteiroAuxiliar->proximo == NULL){
+            ponteiroAuxiliar->proximo = novoValor;
+            return;
+        }
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+    }
+}
+
 int main(){
 
     int funcaoUsuario = 0, rg;
@@ -69,7 +87,6 @@ int main(){
     pessoa *ponteiroEncadeada = new pessoa;
 
     while(funcaoUsuario != 9){
-
 
         cout << "funcao 1: insercao de uma pessoa no inicio da lista\n";
         cout << "funcao 2: insercao de uma pessoa no final da lista\n";
@@ -95,9 +112,20 @@ int main(){
 
                 addComecoEncadeada(ponteiroEncadeada, nome, rg);
 
-
                 break;
             case 2:
+
+                cout << "\nfuncao 1: insercao de uma pessoa no final da lista\n";
+                cout << "Digite um nome: ";
+                cin >> nome;
+                cout << "Digite um RG: ";
+                cin >> rg;
+
+                if(retornaTamanho(ponteiroEncadeada) == 0){
+                    addComecoEncadeada(ponteiroEncadeada, nome, rg);
+                }else{
+                    addFimEncadeada(ponteiroEncadeada, nome, rg);
+                }
 
                 break;
             case 3:
@@ -126,9 +154,15 @@ int main(){
                 }
 
                 break;
+
             case 9:
 
                 cout << "\nSaindo do sistema..";
+
+                break;
+
+            default:
+                cout << "\nPor favor, digite um numero valido!\n";
 
                 break;
         }
