@@ -48,6 +48,17 @@ void imprimeLista(pessoa *ponteiroEncadeada){
 }
 
 void addComecoEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
+    pessoa *novaPessoa = new pessoa;
+    novaPessoa->nome = nome;
+    novaPessoa->rg = rg;
+
+    if(ponteiroEncadeada->nome== ""){
+        novaPessoa->proximo = NULL;
+    }else{
+        novaPessoa->proximo = ponteiroEncadeada;
+    }
+
+    ponteiroEncadeada = novaPessoa;
 
 }
 
@@ -60,7 +71,7 @@ int main(){
     while(funcaoUsuario != 9){
 
 
-        cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista\n";
+        cout << "funcao 1: insercao de uma pessoa no inicio da lista\n";
         cout << "funcao 2: insercao de uma pessoa no final da lista\n";
         cout << "funcao 3: insercao de uma pessoa na posicao N\n";
         cout << "funcao 4: remocao de uma pessoa no inicio da lista\n";
@@ -76,10 +87,10 @@ int main(){
         switch(funcaoUsuario){
             case 1:
 
-                cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista";
-                cout << "\nDigite um nome: ";
+                cout << "\nfuncao 1: insercao de uma pessoa no inicio da lista\n";
+                cout << "Digite um nome: ";
                 cin >> nome;
-                cout << "\n Digite um RG: ";
+                cout << "Digite um RG: ";
                 cin >> rg;
 
                 addComecoEncadeada(ponteiroEncadeada, nome, rg);
@@ -106,7 +117,7 @@ int main(){
                 break;
             case 8:
 
-                cout << "\nfuncao 8: mostrar a lista";
+                cout << "\nfuncao 8: mostrar a lista\n";
 
                 if(ponteiroEncadeada->nome == ""){
                     cout << "\nLista vazia, adicione numeros!\n";
