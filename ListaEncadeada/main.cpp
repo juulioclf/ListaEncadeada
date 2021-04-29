@@ -32,6 +32,7 @@ int retornaTamanho(pessoa *ponteiroEncadeada){
 
 int main(){
 
+    int funcaoUsuario = 0;
     pessoa *ponteiroEncadeada;
 
     //teste
@@ -42,7 +43,6 @@ int main(){
 
     ponteiroEncadeada = testePessoaEncadeada;
 
-
     pessoa *testePessoaEncadeada2 = new pessoa;
     testePessoaEncadeada2->nome = "gabe";
     testePessoaEncadeada2->rg = 21211221;
@@ -50,9 +50,10 @@ int main(){
 
     testePessoaEncadeada->proximo = testePessoaEncadeada2;
 
-    int funcaoUsuario = 0;
+
 
     while(funcaoUsuario != 9){
+
         cout << "tamanho da lista: " << retornaTamanho(ponteiroEncadeada) << "\n\n";
         cout << "funcao 1: insercao de uma pessoa no inicio da lista\n";
         cout << "funcao 2: insercao de uma pessoa no final da lista\n";
@@ -68,7 +69,6 @@ int main(){
         limparTela();
 
     }
-
 
     return 0;
 }
