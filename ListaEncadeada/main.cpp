@@ -149,6 +149,56 @@ void popFimEncadeada(pessoa *&ponteiroEncadeada){
     aux->proximo = NULL;
 }
 
+void popPosicaoEncadeada(pessoa *&ponteiroEncadeada, int posicao){
+
+    pessoa *ponteiroAuxiliar = ponteiroEncadeada;
+
+    int i = 0;
+
+    while(i <= posicao){
+
+        if(i == (posicao -1)){
+
+            pessoa *aux = new pessoa;
+
+            aux = ponteiroAuxiliar->proximo;
+
+            ponteiroAuxiliar->proximo = aux->proximo;
+
+            free(aux);
+
+        }
+
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+
+        i++;
+    }
+
+}
+
+string retornaNomeEncadeada(pessoa *&ponteiroEncadeada, int rg){
+
+    string nome = "Nao encontrado";
+
+    pessoa *ponteiroAuxiliar = ponteiroEncadeada;
+
+    while(ponteiroAuxiliar != NULL){
+
+
+        if(ponteiroAuxiliar->rg == rg){
+
+            nome = ponteiroAuxiliar->nome;
+            return nome;
+        }
+
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+    }
+
+    return nome;
+
+}
+
+
 int main(){
 
     int funcaoUsuario = 0, rg, posicao;
@@ -244,8 +294,30 @@ int main(){
                 break;
             case 6:
 
+                cout << "funcao 6: remocao de uma pessoa na posicao N\n\n";
+                cout << "digite uma posicao: ";
+                cin >> posicao;
+
+                if(posicao == 0){
+
+                    popComecoEncadeada(ponteiroEncadeada);
+
+                }else if(posicao == retornaTamanho(ponteiroEncadeada) - 1){
+
+                    popFimEncadeada(ponteiroEncadeada);
+                }else{
+
+                    popPosicaoEncadeada(ponteiroEncadeada, posicao);
+                }
+
                 break;
             case 7:
+
+                cout << "funcao 7: procurar um Nome pelo RG\n\n";
+                cout << "Digite um RG: ";
+                cin >> rg;
+
+                cout << "o nome do RG " << rg << " eh: "<< retornaNomeEncadeada(ponteiroEncadeada, rg) << "\n\n";
 
                 break;
             case 8:
