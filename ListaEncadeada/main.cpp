@@ -82,9 +82,44 @@ void addFimEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
     }
 }
 
+void addPosicaoEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg, int posicao){
+
+    pessoa *novoValor = new pessoa;
+    novoValor->nome = nome;
+    novoValor->rg = rg;
+    novoValor->proximo = NULL;
+
+    pessoa *ponteiroAuxiliar = ponteiroEncadeada;
+
+    int i = 0;
+
+    while(i <= posicao){
+
+
+        if(i == posicao - 1){
+
+            pessoa *aux = new pessoa;
+
+            aux->proximo = ponteiroAuxiliar->proximo;
+
+            ponteiroAuxiliar->proximo = novoValor;
+
+            novoValor->proximo = aux->proximo;
+
+            free(aux);
+
+        }
+
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+
+        i++;
+    }
+
+}
+
 int main(){
 
-    int funcaoUsuario = 0, rg;
+    int funcaoUsuario = 0, rg, posicao;
     string nome;
     pessoa *ponteiroEncadeada = new pessoa;
 
@@ -131,6 +166,26 @@ int main(){
 
                 break;
             case 3:
+
+                cout << "funcao 3: insercao de uma pessoa na posicao N\n";
+                cout << "Digite uma posicao: ";
+                cin >> posicao;
+                cout << "Digite um nome: ";
+                cin >> nome;
+                cout << "Digite um RG: ";
+                cin >> rg;
+
+                if(posicao == 0){
+
+                    addComecoEncadeada(ponteiroEncadeada, nome, rg);
+
+                }else if(posicao == retornaTamanho(ponteiroEncadeada) - 1){
+
+                    addFimEncadeada(ponteiroEncadeada, nome, rg);
+                }else{
+
+                    addPosicaoEncadeada(ponteiroEncadeada, nome, rg, posicao);
+                }
 
                 break;
             case 4:
