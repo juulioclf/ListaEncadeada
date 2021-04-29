@@ -117,6 +117,38 @@ void addPosicaoEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg, int po
 
 }
 
+void popComecoEncadeada(pessoa *&ponteiroEncadeada){
+
+    if(ponteiroEncadeada->proximo == NULL){
+
+        pessoa *novoValor = new pessoa;
+        novoValor->nome = "";
+        novoValor->rg = 0;
+        novoValor->proximo = NULL;
+
+        ponteiroEncadeada = novoValor;
+    }else{
+        ponteiroEncadeada = ponteiroEncadeada->proximo;
+    }
+
+}
+
+void popFimEncadeada(pessoa *&ponteiroEncadeada){
+
+    pessoa *ponteiroAuxiliar = new pessoa;
+    pessoa *aux = new pessoa;
+
+    ponteiroAuxiliar = ponteiroEncadeada;
+
+    while(ponteiroAuxiliar->proximo != NULL){
+
+        aux = ponteiroAuxiliar;
+        ponteiroAuxiliar = ponteiroAuxiliar->proximo;
+    }
+
+    aux->proximo = NULL;
+}
+
 int main(){
 
     int funcaoUsuario = 0, rg, posicao;
@@ -159,15 +191,17 @@ int main(){
                 cin >> rg;
 
                 if(retornaTamanho(ponteiroEncadeada) == 0){
+
                     addComecoEncadeada(ponteiroEncadeada, nome, rg);
                 }else{
+
                     addFimEncadeada(ponteiroEncadeada, nome, rg);
                 }
 
                 break;
             case 3:
 
-                cout << "funcao 3: insercao de uma pessoa na posicao N\n";
+                cout << "funcao 3: insercao de uma pessoa na posicao N\n\n";
                 cout << "Digite uma posicao: ";
                 cin >> posicao;
                 cout << "Digite um nome: ";
@@ -190,8 +224,22 @@ int main(){
                 break;
             case 4:
 
+                cout << "funcao 4: remocao de uma pessoa no inicio da lista\n\n";
+
+                popComecoEncadeada(ponteiroEncadeada);
+
                 break;
             case 5:
+
+                cout << "funcao 5: remocao de uma pessoa no final da lista\n\n";
+
+                if(retornaTamanho(ponteiroEncadeada) == 0){
+
+                    popComecoEncadeada(ponteiroEncadeada);
+                }else{
+
+                    popFimEncadeada(ponteiroEncadeada);
+                }
 
                 break;
             case 6:
