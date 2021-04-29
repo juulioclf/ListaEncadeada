@@ -17,6 +17,10 @@ void limparTela(){
 
 int retornaTamanho(pessoa *ponteiroEncadeada){
 
+    if(ponteiroEncadeada->nome == ""){
+        return 0;
+    }
+
     int tamanho = 0;
     pessoa *ponteiroAuxiliar = ponteiroEncadeada;
 
@@ -43,11 +47,15 @@ void imprimeLista(pessoa *ponteiroEncadeada){
 
 }
 
+void addComecoEncadeada(pessoa *&ponteiroEncadeada, string nome, int rg){
+
+}
+
 int main(){
 
     int funcaoUsuario = 0, rg;
     string nome;
-    pessoa *ponteiroEncadeada;
+    pessoa *ponteiroEncadeada = new pessoa;
 
     while(funcaoUsuario != 9){
 
@@ -72,8 +80,9 @@ int main(){
                 cout << "\nDigite um nome: ";
                 cin >> nome;
                 cout << "\n Digite um RG: ";
+                cin >> rg;
 
-                //addComecoEncadeada(ponteiroEncadeada, nome, rg);
+                addComecoEncadeada(ponteiroEncadeada, nome, rg);
 
 
                 break;
@@ -98,6 +107,12 @@ int main(){
             case 8:
 
                 cout << "\nfuncao 8: mostrar a lista";
+
+                if(ponteiroEncadeada->nome == ""){
+                    cout << "\nLista vazia, adicione numeros!\n";
+                }else{
+                    imprimeLista(ponteiroEncadeada);
+                }
 
                 break;
             case 9:
