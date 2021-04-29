@@ -63,8 +63,6 @@ int main(){
 
     testePessoaEncadeada->proximo = testePessoaEncadeada2;
 
-
-
     while(funcaoUsuario != 9){
 
         cout << "tamanho da lista: " << retornaTamanho(ponteiroEncadeada) << "\n\n";
